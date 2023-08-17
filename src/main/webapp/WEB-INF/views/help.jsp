@@ -23,7 +23,6 @@
 	<c:forEach var="item" items="${marks}">
 		<%-- <h2>${item}</h2> --%>
 		<h1><c:out value="${item}"></c:out></h1>
-	
 	</c:forEach>
 	
 	
