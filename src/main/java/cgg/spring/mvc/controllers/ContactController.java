@@ -61,6 +61,11 @@ public class ContactController {
 		
 		//model.addAttribute("user", user);
 		
+		if(user.getUsername().isBlank()) {
+			System.out.println("enter details");
+			return "redirect:/contacts";
+		}
+		
 		return "success";
 	}
 }
