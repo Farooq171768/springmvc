@@ -3,8 +3,10 @@ package cgg.spring.mvc.web;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import jakarta.servlet.MultipartConfigElement;
+import jakarta.servlet.ServletRegistration;
 
 @Configuration
 
@@ -28,6 +30,12 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 	protected String[] getServletMappings() {
 
 		return new String[] {"/" };
+	}
+	
+	@Override
+	protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+	    MultipartConfigElement multipartConfigElement = new MultipartConfigElement("", 2097152, 4194304, 0);
+	    registration.setMultipartConfig(multipartConfigElement);
 	}
 
 	/*

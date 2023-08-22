@@ -89,11 +89,10 @@ public class AppConfig {
 	    }
 	 
 
-	/*
-	 * @Bean public CommonsMultipartResolver multipartResolver() {
-	 * CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-	 * // Set any properties for the multipartResolver if needed //
-	 * multipartResolver.setMaxUploadSize(1024 * 1024); // For example, set max
-	 * upload size return multipartResolver; }
-	 */
+//	@Bean
+//    public CommonsMultipartResolver multipartResolver() {
+//        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+//        resolver.setMaxUploadSize(5242880); // Set maximum upload size in bytes
+//        return resolver;
+//    }
 }

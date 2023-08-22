@@ -3,6 +3,7 @@ package cgg.spring.mvc.web;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -11,7 +12,8 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.multipart.support.StandardServletMultipartResolver;
+
+import cgg.spring.mvc.interceptors.MyInterceptor;
 
 @Configuration
 @EnableWebMvc
@@ -29,7 +31,7 @@ public class MVCconfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        // Add your interceptors if needed
+    	 registry.addInterceptor(myInterceptor()).addPathPatterns("/welcome");
     }
 
     @Override
@@ -58,5 +60,10 @@ public class MVCconfig implements WebMvcConfigurer {
         // Set any properties for the multipartResolver if needed
         // multipartResolver.setMaxUploadSize(1024 * 1024); // For example, set max upload size
         return multipartResolver;
+    }
+    
+    @Bean
+    public MyInterceptor myInterceptor() {
+        return new MyInterceptor();
     }
 }
