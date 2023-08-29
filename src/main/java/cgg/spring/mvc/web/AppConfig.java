@@ -2,6 +2,7 @@ package cgg.spring.mvc.web;
 
 import java.util.Properties;
 
+
 import javax.sql.DataSource;
 
 import org.hibernate.dialect.PostgreSQLDialect;
